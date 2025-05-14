@@ -1,0 +1,22 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Titre</th>
+      <th>Description</th>
+      <th>Priorité</th>
+      <th>Statut</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let incident of incidents">
+      <td>{{ incident.title }}</td>
+      <td>{{ incident.description }}</td>
+      <td>{{ incident.priority }}</td>
+      <td>{{ incident.status }}</td>
+      <td>
+        <button *ngIf="incident.status === 'Open'" (click)="closeIncident(incident.id)">Fermer</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
