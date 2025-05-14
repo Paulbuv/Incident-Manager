@@ -1,9 +1,9 @@
 <form [formGroup]="incidentForm" (ngSubmit)="onSubmit()">
   <div>
-    <label for="title">Titre</label>
+    <label for="title">Title</label>
     <input id="title" formControlName="title" required />
     <div *ngIf="incidentForm.get('title')?.invalid && incidentForm.get('title')?.touched">
-      Le titre est requis.
+      Title is required...
     </div>
   </div>
   <div>
@@ -11,12 +11,12 @@
     <textarea id="description" formControlName="description"></textarea>
   </div>
   <div>
-    <label for="priority">Priorité</label>
+    <label for="priority">Priority</label>
     <select id="priority" formControlName="priority">
       <option value="Low">Low</option>
       <option value="Medium">Medium</option>
       <option value="High">High</option>
     </select>
   </div>
-  <button type="submit" [disabled]="incidentForm.invalid">Ajouter</button>
+  <button type="submit" [disabled]="incidentForm.invalid">Add Incident</button>
 </form>

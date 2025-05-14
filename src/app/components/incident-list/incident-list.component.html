@@ -1,10 +1,10 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Titre</th>
+      <th>Title</th>
       <th>Description</th>
-      <th>Priorité</th>
-      <th>Statut</th>
+      <th>Priority</th>
+      <th>Status</th>
       <th>Action</th>
     </tr>
   </thead>
@@ -15,7 +15,7 @@
       <td>{{ incident.priority }}</td>
       <td>{{ incident.status }}</td>
       <td>
-        <button *ngIf="incident.status === 'Open'" (click)="closeIncident(incident.id)">Fermer</button>
+        <button *ngIf="incident.status === 'Open'" (click)="closeIncident(incident.id)">Close</button>
       </td>
     </tr>
   </tbody>
