@@ -1,22 +1,43 @@
-<form [formGroup]="incidentForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="title">Title</label>
-    <input id="title" formControlName="title" required />
-    <div *ngIf="incidentForm.get('title')?.invalid && incidentForm.get('title')?.touched">
-      Title is required...
+<div class="container">
+  <div class="card mt-4 pronounced-border" style="max-width: 600px;">
+    <div class="card-header pronounced-border">
+      <h5 class="mb-0">Add an Incident</h5>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="incidentForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="title" class="form-label">Titre</label>
+          <input id="title" 
+                 formControlName="title" 
+                 class="form-control pronounced-border" 
+                 required />
+          <div *ngIf="incidentForm.get('title')?.invalid && incidentForm.get('title')?.touched"
+               class="text-danger">
+            Le titre est requis.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea id="description" 
+                    formControlName="description" 
+                    class="form-control pronounced-border"></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="priority" class="form-label">Priorité</label>
+          <select id="priority" 
+                  formControlName="priority" 
+                  class="form-select pronounced-border">
+            <option value="Low">Faible</option>
+            <option value="Medium">Moyenne</option>
+            <option value="High">Élevée</option>
+          </select>
+        </div>
+        <button type="submit" 
+                [disabled]="incidentForm.invalid" 
+                class="btn btn-success">
+          Ajouter
+        </button>
+      </form>
     </div>
   </div>
-  <div>
-    <label for="description">Description</label>
-    <textarea id="description" formControlName="description"></textarea>
-  </div>
-  <div>
-    <label for="priority">Priority</label>
-    <select id="priority" formControlName="priority">
-      <option value="Low">Low</option>
-      <option value="Medium">Medium</option>
-      <option value="High">High</option>
-    </select>
-  </div>
-  <button type="submit" [disabled]="incidentForm.invalid">Add Incident</button>
-</form>
+</div>
