@@ -1,1 +1,22 @@
-<p>incident-form works!</p>
+<form [formGroup]="incidentForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="title">Titre</label>
+    <input id="title" formControlName="title" required />
+    <div *ngIf="incidentForm.get('title')?.invalid && incidentForm.get('title')?.touched">
+      Le titre est requis.
+    </div>
+  </div>
+  <div>
+    <label for="description">Description</label>
+    <textarea id="description" formControlName="description"></textarea>
+  </div>
+  <div>
+    <label for="priority">Priorité</label>
+    <select id="priority" formControlName="priority">
+      <option value="Low">Faible</option>
+      <option value="Medium">Moyenne</option>
+      <option value="High">Élevée</option>
+    </select>
+  </div>
+  <button type="submit" [disabled]="incidentForm.invalid">Ajouter</button>
+</form>
