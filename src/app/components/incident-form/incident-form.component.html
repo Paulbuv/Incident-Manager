@@ -6,14 +6,14 @@
     <div class="card-body">
       <form [formGroup]="incidentForm" (ngSubmit)="onSubmit()">
         <div class="mb-3">
-          <label for="title" class="form-label">Titre</label>
+          <label for="title" class="form-label">Title</label>
           <input id="title" 
                  formControlName="title" 
                  class="form-control pronounced-border" 
                  required />
           <div *ngIf="incidentForm.get('title')?.invalid && incidentForm.get('title')?.touched"
                class="text-danger">
-            Le titre est requis.
+            Title is required.
           </div>
         </div>
         <div class="mb-3">
@@ -23,19 +23,19 @@
                     class="form-control pronounced-border"></textarea>
         </div>
         <div class="mb-3">
-          <label for="priority" class="form-label">Priorité</label>
+          <label for="priority" class="form-label">Priority</label>
           <select id="priority" 
                   formControlName="priority" 
                   class="form-select pronounced-border">
-            <option value="Low">Faible</option>
-            <option value="Medium">Moyenne</option>
-            <option value="High">Élevée</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
           </select>
         </div>
         <button type="submit" 
                 [disabled]="incidentForm.invalid" 
                 class="btn btn-success">
-          Ajouter
+          Add Incident
         </button>
       </form>
     </div>
